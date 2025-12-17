@@ -7,32 +7,62 @@
     <link rel="stylesheet" href="style.css">
     <script src="particles.js"></script>
     <script src="app.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nanum+Gothic:wght@700;800&family=Rubik:ital@0;1&display=swap');
+    </style>
+    <script src="js/p5.min.js"></script>
+    <script src="js/vanta.topology.min.js"></script>
+
+    <script>
+        let effect = null;
+
+        function initVanta() {
+            if (effect) effect.destroy();
+            effect = VANTA.TOPOLOGY({
+                el: "#topology-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200,
+                minWidth: 200,
+                color: 0x4e7496
+            });
+        }
+        document.addEventListener("DOMContentLoaded", initVanta);
+
+        window.addEventListener("resize", () => {
+            initVanta();
+        });
+    </script>
 </head>
 <body>
-    <div id="particles-js"></div>
-
+    
     <div class="header">
         <div class="left">
-            <button class="menu-btn">
-                <svg class="menu-icon" viewBox="0 0 20 20">
-                    <path fill="#currentColor" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                </svg>
-            </button>
-
-        </div>
-        <div class="center">
-            <h1 class="site-title">Ethan Pilskalns</h1>
+            <h1 class="site-title">Ethan Pilskalns<span class="text-accent">.</span></h1>
         </div>
         <div class="right">
-            <button class="menu-btn-right">
-                <svg class="menu-icon" viewBox="0 0 20 20">
-                    <path fill="#currentColor" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                </svg>
-            </button>
+            <nav>
+                <a class= "navbar-text navbar-border navbar-text-active" href="/index.html">Personal</a>
+                <a class= "navbar-text" href="/about">Projects</a>
+                <a class= "navbar-text" href="/contact">Contact</a>
         </div>
     </div>
     <div class="container">
+        <div id="topology-bg">
+            <div class="overlay-text">
+                <h1>Hello, I'm <span class="text-accent">Ethan Pilskalns</span></h1>
+                <h1>Software Engineer</h1>
+            </div>
+        </div>
+        <div class="content">
 
+        </div>
     </div>
+    
+
+    <footer class="footer">
+        <p class="footer-text">   2025 Ethan Pilskalns</p>
+    </footer>
 </body>
 </html>
